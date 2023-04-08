@@ -3,8 +3,9 @@ import { Tickets } from '/imports/api/tickets/tickets.js';
 
 import '/imports/ui/tickets/ticketDetails.html';
 
-Template.ticketDetails.onCreated(function() {
-    this.subscribe('Tickets');
+Template.ticketDetails.onCreated(function () {
+    const ticketId = FlowRouter.getParam('_id');
+    this.subscribe('Ticket', ticketId);
 });
 
 Template.ticketDetails.helpers({

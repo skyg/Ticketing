@@ -6,6 +6,10 @@ Meteor.publish('Tickets', function () {
     return Tickets.find();
 });
 
+Meteor.publish('Ticket', function (ticketId) {
+    return Tickets.find({ _id: ticketId });
+});
+
 Meteor.startup(() => {
 
     //Tickets.remove({});
