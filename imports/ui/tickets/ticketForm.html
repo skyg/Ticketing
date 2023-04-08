@@ -1,0 +1,28 @@
+<template name="ticketForm">
+    <div class="container">
+        <h1 class="mb-0">Ajouter un ticket</h1>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <form>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Titre</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="5" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-select" id="status" name="status">
+                            <option value="open">Ouvert</option>
+                            <option value="in-progress">En cours</option>
+                            <option value="closed">Clôturé</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Ajouter !</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>
