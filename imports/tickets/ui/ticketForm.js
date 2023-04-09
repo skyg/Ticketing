@@ -1,7 +1,20 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
+import { Status } from '../../status/lib/collections.js';
+
 import './ticketForm.html';
+
+Template.ticketForm.onCreated(function() {
+    this.subscribe('Status');
+});
+
+Template.ticketForm.helpers({
+    statuses() {
+        return Status.find();
+    },
+});
+
 
 Template.ticketForm.events({
     'submit form': function(event) {
@@ -16,7 +29,7 @@ Template.ticketForm.events({
                 console.log(error);
             } else {
                 form.reset();
-                FlowRouter.go('/tickets');
+                FlowRouter.go('/tickets/'+result);
             }
         });
     }

@@ -29,3 +29,11 @@ FlowRouter.route('/tickets/:_id', {
         BlazeLayout.render('mainLayout', { content: 'ticketDetails' });
     },
 });
+
+FlowRouter.route('/tickets/update/:_id', {
+    name: 'ticketUpdate',
+    action: function () {
+        import '../imports/tickets/ui/ticketUpdate.js';
+        BlazeLayout.render('mainLayout', { content: 'ticketUpdate' });
+    },
+});

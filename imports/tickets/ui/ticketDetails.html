@@ -1,11 +1,30 @@
 <template name="ticketDetails">
     <div class="container">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{ticket.title}}</h5>
-                <p class="card-text">{{ticket.description}}</p>
-                <p class="card-text"><small class="text-muted">{{ticket.status}}</small></p>
+
+        <h1 class="mb-0">{{ticket.title}}</h1>
+
+        <p class="my-3">
+            <a href="/tickets">Retour</a>
+        </p>
+
+        <div class="row mt-3">
+            <div class="col-md-6">
+
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p class="card-text">{{ticket.description}}</p>
+                        <p class="card-text">
+                            <span class="bg-white p-1 border border-2 {{ticket.status.color}}"><strong>{{ticket.status.name}}</strong></span>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/tickets/update/{{ticket._id}}" class="card-link">Modifier</a>
+                        <a href="#" class="delete card-link" data-ticketId="{{ticket._id}}">Supprimer</a>
+                    </div>
+                </div>
+
             </div>
         </div>
+
     </div>
 </template>

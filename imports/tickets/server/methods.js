@@ -14,5 +14,12 @@ Meteor.methods({
         const ticketId = Tickets.insert(ticket);
 
         return ticketId;
-    }
+    },
+    'tickets.update'(ticket) {
+        ticket.updatedAt = new Date();
+        Tickets.update({ _id: ticket._id }, { $set: ticket });
+    },
+    'tickets.delete'(ticketId) {
+        Tickets.remove(ticketId);
+    },
 });
