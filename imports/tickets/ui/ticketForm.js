@@ -23,14 +23,8 @@ Template.ticketForm.events({
         const title = form.title.value.trim();
         const description = form.description.value.trim();
         const status = form.status.value;
-        const user = Meteor.userId();
 
-        // pas certain que ce soit utile ... better safe than sorry ?
-        if (!user) {
-            FlowRouter.go('/');
-        }
-
-        Meteor.call('tickets.create', { title, description, status, user }, (error, result) => {
+        Meteor.call('tickets.create', { title, description, status }, (error, result) => {
             if (error) {
                 console.log(error);
             } else {

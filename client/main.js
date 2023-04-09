@@ -11,4 +11,3 @@ import './routes.js';
 Meteor.startup(() => {
 
 });
-
