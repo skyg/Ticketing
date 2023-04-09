@@ -1,5 +1,5 @@
 import { Template } from 'meteor/templating';
-import { Tickets } from '../collections.js';
+import { Tickets } from '../lib/collections.js';
 
 import './ticketDetails.html';
 
