@@ -1,0 +1,46 @@
+.btn-group.login-buttons {
+  margin-top: 5px;
+}
+
+.btn-group.login-buttons .dropdown-toggle {
+  margin-left: 10px;
+}
+
+.btn-group.login-buttons .dropdown-menu {
+  margin-top: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.btn-group.login-buttons .dropdown-item {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 10px 20px;
+}
+
+.btn-group.login-buttons .dropdown-item:hover,
+.btn-group.login-buttons .dropdown-item:focus {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.btn-group.login-buttons .dropdown-divider {
+  margin: 0;
+}
+
+.circle {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--bs-info);
+  color: #fff;
+  text-align: center;
+  line-height: 32px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 8px;
+}

@@ -12,14 +12,28 @@ FlowRouter.route('/tickets', {
     action: function () {
         import '../imports/tickets/ui/ticketList.js';
         BlazeLayout.render('mainLayout', { content: 'ticketList' });
-    }
+    },
+    triggersEnter: [
+        function(context, redirect) {
+            if (!Meteor.userId()) {
+                redirect('/');
+            }
+        }
+    ]
 });
 
 FlowRouter.route('/tickets/create', {
     action: function() {
         import '../imports/tickets/ui/ticketForm.js';
         BlazeLayout.render('mainLayout', { content: 'ticketForm' });
-    }
+    },
+    triggersEnter: [
+        function(context, redirect) {
+            if (!Meteor.userId()) {
+                redirect('/');
+            }
+        }
+    ]
 });
 
 FlowRouter.route('/tickets/:_id', {
@@ -28,6 +42,13 @@ FlowRouter.route('/tickets/:_id', {
         import '../imports/tickets/ui/ticketDetails.js';
         BlazeLayout.render('mainLayout', { content: 'ticketDetails' });
     },
+    triggersEnter: [
+        function(context, redirect) {
+            if (!Meteor.userId()) {
+                redirect('/');
+            }
+        }
+    ]
 });
 
 FlowRouter.route('/tickets/update/:_id', {
@@ -36,4 +57,11 @@ FlowRouter.route('/tickets/update/:_id', {
         import '../imports/tickets/ui/ticketUpdate.js';
         BlazeLayout.render('mainLayout', { content: 'ticketUpdate' });
     },
+    triggersEnter: [
+        function(context, redirect) {
+            if (!Meteor.userId()) {
+                redirect('/');
+            }
+        }
+    ]
 });

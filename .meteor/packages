@@ -26,3 +26,6 @@ blaze-hot               # Update files using Blaze's API with HMR
 kadira:flow-router
 session
 kadira:blaze-layout
+accounts-base
+accounts-password
+accounts-ui

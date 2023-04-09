@@ -1,33 +1,34 @@
 <template name="ticketList">
-    <div class="container">
-        <h1 class="mb-0">Les tickets</h1>
+    <h1 class="mb-0">Les tickets</h1>
 
-        <p class="my-3">
-            <span class="badge bg-secondary float-end">{{countTickets}} ticket(s)</span>
-            <a href="/tickets/create">Ajouter un ticket</a>
-        </p>
+    <p class="my-3">
+        <span class="badge bg-secondary float-end">{{countTickets}} ticket(s)</span>
+        <a href="/tickets/create" class="btn btn-primary">Ajouter un ticket</a>
+    </p>
 
-        {{#if isEqual countTickets 0}}
-            <p class="my-3">Aucun ticket pour le moment.</p>
-        {{/if}}
+    {{#if isEqual countTickets 0}}
+        <div class="alert bg-light border"><em>Aucun ticket pour le moment.</em></div>
+    {{/if}}
 
-        <div class="row">
-            {{#each tickets}}
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">{{title}}</h5>
-                        <p class="card-text">{{description}}</p>
-                        <span class="bg-white p-1 border border-2 {{statusColor}}"><strong>{{statusName}}</strong></span>
-                    </div>
-                    <div class="card-footer">
-                        <a href="/tickets/{{_id}}" class="card-link">Détails</a>
-                        <a href="/tickets/update/{{_id}}" class="card-link">Modifier</a>
-                        <a href="#" class="delete card-link" data-ticketId="{{_id}}">Supprimer</a>
-                    </div>
+    <div class="row">
+        {{#each tickets}}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    <p class="card-text">{{description}}</p>
+                    <div class="circle float-end">{{getUserInitials user}}</div>
+                    <span class="bg-white p-1 border border-2 {{statusColor}}">
+                        <strong>{{statusName}}</strong>
+                    </span>
+                </div>
+                <div class="card-footer">
+                    <a href="/tickets/{{_id}}" class="card-link">Détails</a>
+                    <a href="/tickets/update/{{_id}}" class="card-link">Modifier</a>
+                    <a href="#" class="delete card-link" data-ticketId="{{_id}}">Supprimer</a>
                 </div>
             </div>
-            {{/each}}
         </div>
+        {{/each}}
     </div>
 </template>

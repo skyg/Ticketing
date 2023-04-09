@@ -27,6 +27,10 @@ Template.ticketList.helpers({
     },
     countTickets() {
         return Tickets.find().count();
+    },
+    getUserInitials(userId) {
+        const user = Meteor.users.findOne(userId);
+        return user && user.profile && user.profile.initials;
     }
 });
 

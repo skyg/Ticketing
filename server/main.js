@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 
 import { Tickets } from '../imports/tickets/lib/collections.js';
 import { Status } from '../imports/status/lib/collections.js';
@@ -15,25 +16,17 @@ Meteor.publish('Status', function () {
     return Status.find();
 });
 
+Accounts.onCreateUser((options, user) => {
+    const name = user.emails[0].address.split('@')[0];
+    const initials = name.slice(0, 2);
+    user.profile = { name, initials };
+    return user;
+});
+
 Meteor.startup(() => {
 
     //Tickets.remove({});
     //Status.remove({});
-
-    if (Tickets.find().count() === 0) {
-        const sampleTickets = [
-            {
-                title: 'Mon premier ticket',
-                description: 'Ceci est un ticket de test pour voir.',
-                createdAt: new Date(),
-                status: '',
-            }
-        ];
-
-        sampleTickets.forEach((ticket) => {
-            Tickets.insert(ticket);
-        });
-    }
 
     if (Status.find().count() === 0) {
 
