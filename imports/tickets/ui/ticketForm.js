@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
-import '/imports/ui/tickets/ticketForm.html';
+import './ticketForm.html';
 
 Template.ticketForm.events({
     'submit form': function(event) {

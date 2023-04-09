@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import { Tickets } from '/imports/api/tickets/tickets.js';
+import { Tickets } from './collections.js';
 
 Meteor.methods({
     'tickets.create'(ticket) {

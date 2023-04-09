@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
-import { Tickets } from '/imports/api/tickets/tickets.js';
+import { Tickets } from '../collections.js';
 
-import '/imports/ui/tickets/ticketList.html';
+import './ticketList.html';
 
 Template.ticketList.onCreated(function() {
     this.subscribe('Tickets');

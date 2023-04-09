@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
-import { Tickets } from '/imports/api/tickets/tickets.js';
-import '/imports/api/tickets/methods.js';
+import { Tickets } from '../imports/tickets/collections.js';
+import '../imports/tickets/methods.js';
 
 Meteor.publish('Tickets', function () {
     return Tickets.find();
